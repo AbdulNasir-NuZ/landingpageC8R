@@ -51,31 +51,19 @@ export const FAQSection = () => {
     >
       {/* Header */}
       <motion.div variants={slideInFromTop} className="text-center mt-12 mb-16">
-        <h2 className="text-5xl font-bold text-white mb-2">FAQ</h2>
-        <div className="flex flex-col items-center">
-          <motion.h3
-            variants={slideInFromLeft(0.3)}
-            className="text-3xl font-bold text-white mb-1"
-          >
-            FREQUENTLY ASKED
-          </motion.h3>
-          <motion.h3
-            variants={slideInFromLeft(0.4)}
-            className="text-3xl font-bold text-white"
-          >
-            QUESTIONS
-          </motion.h3>
-        </div>
+        <h2 className="text-5xl font-extrabold text-white mb-2 uppercase">
+          FAQ
+        </h2>
         <motion.p
-          variants={slideInFromLeft(0.5)}
-          className="text-lg text-gray-300 mt-6 max-w-2xl mx-auto"
+          variants={slideInFromLeft(0.3)}
+          className="text-lg text-gray-300 mt-4 max-w-2xl mx-auto"
         >
           Here are some of the most common queries to help you get started.
         </motion.p>
       </motion.div>
 
       {/* FAQ Items */}
-      <div className="max-w-4xl mx-auto space-y-4 overflow-visible">
+      <div className="max-w-4xl mx-auto space-y-6 overflow-visible">
         {faqs.map((faq, index) => (
           <motion.div
             key={index}
@@ -83,39 +71,33 @@ export const FAQSection = () => {
             className="overflow-visible"
           >
             <motion.div
-              className="p-6 rounded-xl border-2 border-gray-500 cursor-pointer transition-all overflow-visible"
+              className="p-6 rounded-xl relative overflow-hidden
+                backdrop-blur-md bg-gradient-to-br from-[#1a103d]/70 to-[#012c3d]/70 
+                border border-transparent hover:border-indigo-400/60
+                shadow-[0_0_15px_rgba(138,43,226,0.4)] hover:shadow-[0_0_25px_rgba(138,43,226,0.7)]
+                transition-all duration-300 cursor-pointer"
               onClick={() => toggleFAQ(index)}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              style={{
-                boxShadow: "none",
-                backgroundColor: "transparent",
-              }}
             >
               <div className="flex justify-between items-center">
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-lg sm:text-xl font-semibold text-white">
                   <span className="text-purple-400 mr-2">{index + 1}.</span>
                   {faq.question}
                 </h3>
-                <motion.div
+
+                {/* Toggle Icon */}
+                <motion.svg
                   animate={{ rotate: activeIndex === index ? 45 : 0 }}
-                  className="text-2xl font-bold text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="white"
+                  className="w-6 h-6"
                 >
-                  <motion.span
-                    animate={{
-                      scale: [1, 1.1, 1],
-                      opacity: [0.8, 1, 0.8],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="block"
-                  >
-                    +
-                  </motion.span>
-                </motion.div>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                </motion.svg>
               </div>
 
               <AnimatePresence>
@@ -127,7 +109,7 @@ export const FAQSection = () => {
                     transition={{ duration: 0.3 }}
                     className="pt-4"
                   >
-                    <p className="text-gray-300">{faq.answer}</p>
+                    <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

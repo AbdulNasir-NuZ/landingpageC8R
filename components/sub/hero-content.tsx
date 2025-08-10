@@ -17,25 +17,9 @@ export const HeroContent = () => {
       animate="visible"
       className="relative w-full px-5 mt-40 z-[20] flex flex-col items-center"
     >
-      {/* Background Image */}
-      <motion.div
-        variants={slideInFromRight(0.8)}
-        className="absolute inset-0 flex justify-center items-center z-0 pointer-events-none opacity-70"
-      >
-        <div className="relative w-[800px] h-[800px]">
-          <Image
-            src=""
-            alt="Background visual"
-            fill
-            style={{ objectFit: "contain" }}
-            className="select-none"
-            draggable={false}
-          />
-        </div>
-      </motion.div>
-
+ 
       {/* Foreground Content */}
-      <div className="relative z-10 flex flex-col gap-5 justify-center max-w-[1200px] text-left px-6 mx-0">
+      <div className="relative z-10 flex flex-col gap-1 justify-center max-w-[1200px] text-left px-6 mx-0">
         <motion.div
           variants={slideInFromTop}
           className="Welcome-box py-[8px] px-[7px] mt-12 border border-[#7042f88b] opacity-[0.9] flex items-center ml-0"
