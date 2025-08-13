@@ -1,14 +1,17 @@
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation"; // instead of next/router
 
 export default function SearchPage() {
   const router = useRouter();
-  const { query } = router.query;
+
+  // Example usage
+  const handleSearch = () => {
+    router.push("/marketplace?query=test");
+  };
 
   return (
-    <main className="min-h-screen p-6 text-white">
-      <h1 className="text-3xl font-bold mb-4">Search Results</h1>
-      <p>Showing results for: <strong>{query || "none"}</strong></p>
-      {/* Display search results here */}
-    </main>
+    <div>
+      <h1>Search</h1>
+      <button onClick={handleSearch}>Search</button>
+    </div>
   );
 }
