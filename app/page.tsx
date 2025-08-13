@@ -1,3 +1,6 @@
+"use client";
+import { useRouter } from "next/navigation";
+
 import { Encryption } from "@/components/main/encryption";
 import { Hero } from "@/components/main/hero";
 //import { MotionPills } from "@/components/main/MotionPills";
