@@ -142,6 +142,7 @@ tailwind.config.ts
 
 # Clone with CRE8TAR templates
 git clone https://github.com/AbdulNasir-NuZ/landingpageC8R.git
+
 cd landingpageC8R
 
 # Install with cosmic dependencies
